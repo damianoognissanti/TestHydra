@@ -14,7 +14,7 @@
     inherit (self) outputs;
   in {
     packages.x86_64-linux = {
-      hardware.nixosModules.microsoft-surface-pro-intel;
+      surface = hardware.nixosModules.microsoft-surface-pro-intel;
     };
 
     hydraJobs = {
