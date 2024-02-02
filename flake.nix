@@ -4,16 +4,18 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     #hardware.url = "github:NixOS/nixos-hardware/master";
   };
-  outputs = { self, nixpkgs, hardware, ... }: {
-    packages.x86_64-linux = {
-      #microsoft-surface-pro-intel = hardware.nixosModules.microsoft-surface-pro-intel;
-      hello = nixpkgs.hello;
 
-    };
+  outputs = { self, nixpkgs }: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs { inherit system; };
+  in
+  {
+    packages."x86_64-linux".hello = pkgs.hello;
+    packages."x86_64-linux".default = pkgs.hello;
+  };
 
-    hydraJobs = {
-      inherit (self)
-        packages;
-    };
+  hydraJobs = {
+    inherit (self)
+      packages;
   };
 }
