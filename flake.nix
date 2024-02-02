@@ -7,7 +7,7 @@
   outputs = { self, nixpkgs, hardware, ... }: {
     packages.x86_64-linux = {
       #microsoft-surface-pro-intel = hardware.nixosModules.microsoft-surface-pro-intel;
-      hello = nixpkgs.hello;
+      hello = pkgs.hello;
 
     };
 
