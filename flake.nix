@@ -5,16 +5,14 @@
     #hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, ... }: let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs { inherit system; };
-  in
-  {
-    packages."x86_64-linux".hello = pkgs.hello;
-    packages."x86_64-linux".default = pkgs.hello;
+  outputs = { self, nixpkgs, ... }: {
+    packages."x86_64-linux" = {
+      hello = pkgs.hello;
+    };
   };
 
   hydraJobs = {
-      packages;
+    inherit (self)
+     packages.hello;
   };
 }
