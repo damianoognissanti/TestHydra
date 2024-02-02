@@ -14,8 +14,12 @@
   } @ inputs: let
     inherit (self) outputs;
   in {
-      hydraJobs = {
-        build = hardware.nixosModules.microsoft-surface-pro-intel;
-      };
+    packages.x86_64-linux = {
+      hardware.nixosModules.microsoft-surface-pro-intel;
     };
+
+    hydraJobs = {
+      packages;
+    };
+  };
 }
