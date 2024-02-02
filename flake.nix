@@ -15,7 +15,7 @@
     inherit (self) outputs;
   in {
       hydraJobs = {
-        build = hardware.nixosModules.microsoft-surface-pro-intel
+        build = hardware.nixosModules.microsoft-surface-pro-intel;
       };
     };
 }
