@@ -15,7 +15,6 @@
   };
 
   hydraJobs = {
-    inherit (self)
       packages;
   };
 }
